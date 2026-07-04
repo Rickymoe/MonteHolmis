@@ -201,19 +201,20 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
 }
 .photo-stack .stack-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .photo-stack .stack-badge {
-  position: absolute; top: 12px; right: 12px; background: rgba(34,41,47,0.55); color: #fff;
+  position: absolute; top: 12px; right: 12px; z-index: 10; background: rgba(34,41,47,0.55); color: #fff;
   font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+  pointer-events: none;
 }
 .photo-stack .stack-item:nth-child(1) { transform: rotate(-9deg) translate(-14px, 6px); z-index: 1; }
 .photo-stack .stack-item:nth-child(2) { transform: rotate(-4deg) translate(-6px, 2px); z-index: 2; }
 .photo-stack .stack-item:nth-child(3) { transform: rotate(2deg) translate(4px, -2px); z-index: 3; }
 .photo-stack .stack-item:nth-child(4) { transform: rotate(7deg) translate(12px, 4px); z-index: 4; }
 .photo-stack .stack-item:nth-child(5) { transform: rotate(0deg) translate(0,0); z-index: 5; }
-.photo-stack:hover .stack-item:nth-child(1), .photo-stack.fanned .stack-item:nth-child(1) { transform: rotate(-16deg) translate(-85px, 20px); }
-.photo-stack:hover .stack-item:nth-child(2), .photo-stack.fanned .stack-item:nth-child(2) { transform: rotate(-8deg) translate(-42px, 8px); }
-.photo-stack:hover .stack-item:nth-child(3), .photo-stack.fanned .stack-item:nth-child(3) { transform: rotate(0deg) translate(0px, 0px); }
-.photo-stack:hover .stack-item:nth-child(4), .photo-stack.fanned .stack-item:nth-child(4) { transform: rotate(8deg) translate(42px, 8px); }
-.photo-stack:hover .stack-item:nth-child(5), .photo-stack.fanned .stack-item:nth-child(5) { transform: rotate(16deg) translate(85px, 20px); }
+.photo-stack:hover .stack-item:nth-child(1) { transform: rotate(-16deg) translate(-85px, 20px); }
+.photo-stack:hover .stack-item:nth-child(2) { transform: rotate(-8deg) translate(-42px, 8px); }
+.photo-stack:hover .stack-item:nth-child(3) { transform: rotate(0deg) translate(0px, 0px); }
+.photo-stack:hover .stack-item:nth-child(4) { transform: rotate(8deg) translate(42px, 8px); }
+.photo-stack:hover .stack-item:nth-child(5) { transform: rotate(16deg) translate(85px, 20px); }
 .photo-stack-hint { font-size: 0.85rem; color: var(--ink-soft); text-align: center; margin-top: 8px; }
 .photo-stack-hint strong { color: var(--brand-blue); }
 

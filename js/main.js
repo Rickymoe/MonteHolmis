@@ -22,10 +22,16 @@ async function loadPartial(url, targetId) {
 }
 
 function initPhotoStacks() {
-  // :hover fans the stack out on desktop; click/tap toggles the same
-  // state via .fanned so the component also works on touch devices.
+  // Clicking the stack sends the front card to the back (it becomes the
+  // first child), so the next photo takes its place on top. CSS z-index
+  // and rotation are driven by :nth-child, so reordering the DOM is
+  // enough to cycle the stack.
   document.querySelectorAll('.photo-stack').forEach(stack => {
-    stack.addEventListener('click', () => stack.classList.toggle('fanned'));
+    stack.addEventListener('click', () => {
+      const items = stack.querySelectorAll('.stack-item');
+      if (items.length < 2) return;
+      stack.prepend(items[items.length - 1]);
+    });
   });
 }
 
