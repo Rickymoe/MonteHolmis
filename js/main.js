@@ -22,15 +22,29 @@ async function loadPartial(url, targetId) {
 }
 
 function initPhotoStacks() {
-  // Clicking the stack sends the front card to the back (it becomes the
-  // first child), so the next photo takes its place on top. CSS z-index
-  // and rotation are driven by :nth-child, so reordering the DOM is
-  // enough to cycle the stack.
+  // Clicking the stack plays an exit animation on the front card, then
+  // moves it to the back of the DOM order once that finishes, revealing
+  // the next photo on top. The remaining cards shift into their new
+  // :nth-child positions using the stack's own transform transition.
   document.querySelectorAll('.photo-stack').forEach(stack => {
+    let animating = false;
     stack.addEventListener('click', () => {
+      if (animating) return;
       const items = stack.querySelectorAll('.stack-item');
       if (items.length < 2) return;
-      stack.prepend(items[items.length - 1]);
+      const front = items[items.length - 1];
+      animating = true;
+      front.classList.add('stack-item--exit');
+      front.addEventListener('transitionend', function onEnd(e) {
+        if (e.propertyName !== 'transform') return;
+        front.removeEventListener('transitionend', onEnd);
+        front.style.transition = 'none';
+        front.classList.remove('stack-item--exit');
+        stack.prepend(front);
+        void front.offsetWidth; // force reflow before re-enabling the transition
+        front.style.transition = '';
+        animating = false;
+      });
     });
   });
 }

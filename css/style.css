@@ -215,8 +215,11 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
 .photo-stack:hover .stack-item:nth-child(3) { transform: rotate(0deg) translate(0px, 0px); }
 .photo-stack:hover .stack-item:nth-child(4) { transform: rotate(8deg) translate(42px, 8px); }
 .photo-stack:hover .stack-item:nth-child(5) { transform: rotate(16deg) translate(85px, 20px); }
-.photo-stack-hint { font-size: 0.85rem; color: var(--ink-soft); text-align: center; margin-top: 8px; }
-.photo-stack-hint strong { color: var(--brand-blue); }
+.photo-stack .stack-item.stack-item--exit {
+  transition: transform 0.7s cubic-bezier(.4,0,.2,1), opacity 0.7s ease;
+  transform: translateY(80px) rotate(-22deg) scale(0.94) !important;
+  opacity: 0; z-index: 20;
+}
 
 /* ===== Bildegalleri — stort bilde + 2 stablet ===== */
 .gallery-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; height: 480px; }
