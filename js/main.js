@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadPartial('partials/footer.html', 'site-footer')
   ]);
   initNav();
+  initPhotoStacks();
 });
 
 async function loadPartial(url, targetId) {
@@ -18,6 +19,14 @@ async function loadPartial(url, targetId) {
   } catch (err) {
     console.error('Kunne ikke laste ' + url, err);
   }
+}
+
+function initPhotoStacks() {
+  // :hover fans the stack out on desktop; click/tap toggles the same
+  // state via .fanned so the component also works on touch devices.
+  document.querySelectorAll('.photo-stack').forEach(stack => {
+    stack.addEventListener('click', () => stack.classList.toggle('fanned'));
+  });
 }
 
 function initNav() {
