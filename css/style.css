@@ -197,7 +197,7 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
 .photo-stack .stack-item {
   position: absolute; inset: 0; border-radius: 20px; overflow: hidden;
   box-shadow: 0 10px 30px rgba(34,41,47,0.25); border: 4px solid var(--paper);
-  cursor: pointer; transition: transform 0.45s cubic-bezier(.2,.8,.2,1); background: var(--line);
+  cursor: pointer; transition: transform 0.8s cubic-bezier(.2,.8,.2,1); background: var(--line);
 }
 .photo-stack .stack-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .photo-stack .stack-badge {
