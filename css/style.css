@@ -188,7 +188,7 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
 }
 
 /* ===== Page hero (undersider, uten bilde) ===== */
-.page-hero { padding: 56px 0 20px; }
+.page-hero { padding-top: 56px; padding-bottom: 20px; }
 .page-hero h1 { color: var(--brand-blue-dark); }
 .page-hero .eyebrow { color: var(--brand-amber-dark); }
 
